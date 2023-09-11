@@ -21,13 +21,11 @@ type Sender struct {
 
 // New returns a Sender
 func New(Username, Password string) Sender {
-
 	return Sender{Username, Password}
 }
 
 // sendMail sends either a plain or an html formatted body message
 func (s Sender) sendMail(Dest []string, Subject, bodyMessage string) error {
-
 	msg := "From: " + s.User + "\n" +
 		"To: " + strings.Join(Dest, ",") + "\n" +
 		"Subject: " + Subject + "\n" + bodyMessage
@@ -41,7 +39,6 @@ func (s Sender) sendMail(Dest []string, Subject, bodyMessage string) error {
 
 // writeEmail formats the body message according to contentType
 func (s Sender) writeEmail(dest []string, contentType, subject, bodyMessage string) string {
-
 	header := make(map[string]string)
 	header["From"] = s.User
 
